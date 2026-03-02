@@ -173,7 +173,7 @@ def create_pdf(df: pd.DataFrame, month_name: str, year: int, school_name: str, t
     pdf.cell(COL_W[4], 9, f"{total_e:.2f} EUR", ln=0, align="R")
     pdf.cell(COL_W[5], 9, "", ln=1, align="C")
 
-    return bytes(pdf.output())
+    return pdf.output(dest="S").encode("latin-1")
 
 
 # ── Streamlit App ──────────────────────────────────────────────────────────────
@@ -326,3 +326,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+
